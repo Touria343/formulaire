@@ -17,7 +17,6 @@ public class ViewHandler extends Application {
     private ViewMenuConnexion mo;
     private ControllerMenu controllerMenu;
     private Menu model;
-    private Text t;
     private Button btn1,btn2;
     private Scene scene, scene2;
     private Stage stage;
@@ -28,8 +27,9 @@ public class ViewHandler extends Application {
  public void start(Stage primaryStage) throws Exception {
 
     this.primaryStage = primaryStage;
-     Group root = new Group();
-     Scene menuDemarrage = new Scene(root);
+
+    Group root = new Group();
+     Scene menuDemarrage = new Scene(root, Color.BLACK);
 
      model = new Menu();
 
@@ -45,11 +45,14 @@ public class ViewHandler extends Application {
 
 
 
+
  primaryStage.setScene(menuDemarrage);
  primaryStage.show();
+ primaryStage.setTitle("Formulaire d'Inscription");
  primaryStage.setFullScreenExitHint("");
  primaryStage.setScene(menuDemarrage);
  primaryStage.setFullScreen(true);
+primaryStage.setResizable(true);
  primaryStage.show();
 
  }

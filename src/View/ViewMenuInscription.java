@@ -4,8 +4,6 @@ package View;
 import Controller.ControllerMenu;
 import Model.Menu;
 import javafx.scene.Group;
-
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -17,6 +15,8 @@ import javafx.scene.text.Text;
 import Tools.Path;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
+import java.util.ArrayList;
 
 
 public class ViewMenuInscription {
@@ -62,10 +62,12 @@ public class ViewMenuInscription {
       setVueCompleteMenu();
 }
 
+
     private void initTitre() {
-        titre = new Text();
+        titre = new Text(10,220, "Formulaire d'Inscription");
         Font policeTitre = Font.loadFont(getClass().getResourceAsStream(Path.fontMadame),80);
         titre.setFont(policeTitre);
+
 
     }
 
@@ -127,14 +129,17 @@ public class ViewMenuInscription {
     }
 
 
-    private void setVueCompleteMenu() {
+     void setVueCompleteMenu() {
         root.getChildren().clear();
         root.getChildren().add(viewer);
         root.getChildren().add(Inscription);
+        root.getChildren().add(titre);
 
     }
 
     void setEvents(ControllerMenu mc) {
+        titre.setOnMouseEntered(mc);
+        Inscription.setOnMouseClicked(mc);
 
  }
 
@@ -146,8 +151,6 @@ public class ViewMenuInscription {
         titre.setFill(new Color(Math.random(), Math.random()));
     }
 
-
-}
 
 
 
