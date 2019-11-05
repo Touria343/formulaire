@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -17,7 +18,7 @@ public class ViewHandler extends Application {
     private ControllerMenu controllerMenu;
     private Menu model;
     private Text t;
-    private Button btn;
+    private Button btn1,btn2;
     private Scene scene, scene2;
     private Stage stage;
     private MediaView viewwer;
@@ -37,20 +38,35 @@ public class ViewHandler extends Application {
 
      Group root2 = new Group();
 
-     Scene scene2 = new Scene(root2);
+     Scene scene2 = new Scene(root2, Color.WHITE);
 
      Menu model = new Menu();
      mo = new ViewMenuConnexion(model, root2);
-     btn = initButton(100, 80, Envoyer);
+
+
+
+ primaryStage.setScene(menuDemarrage);
+ primaryStage.show();
+ primaryStage.setFullScreenExitHint("");
+ primaryStage.setScene(menuDemarrage);
+ primaryStage.setFullScreen(true);
+ primaryStage.show();
 
  }
 
-    private Button initButton(int longeur, int largeur, String texteDuBouton) {
-
+ private Button initButton(int longeur, int largeur, String texteDuBouton) {
      Button b = new Button();
      b.setLayoutX(longeur);
      b.setLayoutY(largeur);
      b.setText(texteDuBouton);
      return b;
-    }
+ }
+
+  public void setEventHandlerMenu(ControllerMenu cm) { mp.setEvents(cm);}
+
+    public Stage getPrimaryStage() { return primaryStage; }
+    public ViewMenuInscription getMp() { return mp; }
+
+
 }
+

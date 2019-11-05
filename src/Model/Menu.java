@@ -4,12 +4,12 @@ package Model;
 
 public class Menu {
 
-    private int Email;
+    private int email;
     private int MotDePasse;
     private int btn2;
 
     public int getEmail() {
-        return Email;
+        return email;
     }
 
     public int getMotDePasse() {

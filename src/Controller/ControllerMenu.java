@@ -20,6 +20,7 @@ public class ControllerMenu implements EventHandler<MouseEvent> {
     public void handle(MouseEvent mouseEvent) {
         if(mouseEvent.getSource().equals(launcher.getMp().getTitre())) {
             launcher.getMp().setRandomColorForTitle();
+
         }
     }
 }

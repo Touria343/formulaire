@@ -2,25 +2,28 @@ package View;
 
 import Model.Menu;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.media.MediaView;
-import javafx.scene.shape.Path;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import javax.xml.soap.Text;
 import java.awt.*;
 
 public class ViewMenuConnexion {
+    private Stage primaryStage;
     private Text titre;
     private Menu model;
     private Group root;
     private Stage stage;
     private Label MotDePasse;
     private PasswordField passwordFielMotDePasse;
-    private Label Email;
+    private Label email;
     private TextField textFieldEmail;
-    private Button btn2;
+    private Button btn1;
     private MediaView viewer;
+    private Scene scene, scene2, scene3;
 
 
 
@@ -33,16 +36,23 @@ public class ViewMenuConnexion {
 
      initEmail();
      initMotDePasse();
-     initbtn2();
+
 
      setVueCompletMenu();
+
+     btn1 = initbtn1(100, 80, "Connexion");
+     btn1.setOnAction(event -> {
+      primaryStage.setScene(scene3);
+     primaryStage.setFullScreen(true);
+
+     });
 
     }
 
     private void initEmail() {
-        Label Email = new Label("Email");
+        Label email = new Label("Email");
         final TextField textFieldEmail = new TextField();
-        this.Email = Email;
+        this.email = email;
     }
 
 
@@ -55,17 +65,24 @@ public class ViewMenuConnexion {
 
     }
 
-    private  void initbtn2() {
-        Button btn2 = new Button("Envoyer");
-        this.btn2 = btn2;
 
+    private Button initbtn1(int longeur, int largeur, String texteDuBouton) {
+        Button d = new Button();
+        d.setLayoutY(longeur);
+        d.setLayoutX(largeur);
+        d.setText(texteDuBouton);
+        return d;
     }
 
     private void setVueCompletMenu() {
         root.getChildren().clear();
         root.getChildren().add(viewer);
+        root.getChildren().add(btn1);
+
 
     }
+
+    public Text getTitre() { return titre;}
 
 
 }

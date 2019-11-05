@@ -5,18 +5,22 @@ import Controller.ControllerMenu;
 import Model.Menu;
 import javafx.scene.Group;
 
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import Tools.Path;
 import javafx.stage.Stage;
 
 
+
 public class ViewMenuInscription {
+
     private  Menu model;
     private Text titre;
     private Label MotDePasse;
@@ -36,6 +40,7 @@ public class ViewMenuInscription {
     private Group root;
     private Button btn2;
     private Stage stage;
+    private Text Inscription;
     private MediaView viewer;
 
 
@@ -44,9 +49,18 @@ public class ViewMenuInscription {
         this.root = root;
         this.model = model;
 
+      initTitre();
+      initPrenom();
+      initNom();
+      initMotDePasse();
+      initAdresse();
+      initCodePostal();
+      initEmail();
+      initVille();
+      initInscription();
 
-        setVueCompleteMenu();
-    }
+      setVueCompleteMenu();
+}
 
     private void initTitre() {
         titre = new Text();
@@ -105,26 +119,35 @@ public class ViewMenuInscription {
         this.Email = Email;
     }
 
-    private  void initbtn2() {
-        Button btn2 = new Button("Envoyer");
-        this.btn2 = btn2;
+    private void initInscription() {
+        Inscription = new Text();
+        Font policeInscription= Font.loadFont(getClass().getResourceAsStream(Path.fontMadame), 45);
+        Inscription.setFont(policeInscription);
+        Inscription.setFill(Color.WHITE);
+    }
 
-        }
 
-     private void setVueCompleteMenu() {
+    private void setVueCompleteMenu() {
         root.getChildren().clear();
         root.getChildren().add(viewer);
+        root.getChildren().add(Inscription);
 
     }
 
-    private void setEvents(ControllerMenu mc) {
+    void setEvents(ControllerMenu mc) {
 
-            }
+ }
 
-    public Text getTitre() { return titre; }
-
+    public Text getTitre() {
+        return titre;
     }
 
+    public void setRandomColorForTitle() {
+        titre.setFill(new Color(Math.random(), Math.random()));
+    }
+
+
+}
 
 
 
